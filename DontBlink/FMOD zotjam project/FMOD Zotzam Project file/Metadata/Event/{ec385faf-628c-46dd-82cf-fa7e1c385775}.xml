@@ -30,6 +30,7 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{4f401c48-b893-475c-b75b-9ed7dfb672db}</destination>
+			<destination>{40a0902f-b25e-4060-89e5-ae192a008eb1}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{0326087e-2a78-43c7-8eae-dc7d52a3a530}</destination>
@@ -69,6 +70,11 @@
 	<object class="ActionSheet" id="{4f401c48-b893-475c-b75b-9ed7dfb672db}">
 		<relationship name="modules">
 			<destination>{94a325ba-d17c-4fe1-a3fc-d0f326b8e76f}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterProxy" id="{40a0902f-b25e-4060-89e5-ae192a008eb1}">
+		<relationship name="preset">
+			<destination>{ee444a15-9352-4010-9d4b-9c787ab41f1d}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{6790b931-8066-45af-a76b-1e4f5bb3f655}">
@@ -195,7 +201,7 @@
 			<value>Atten. Mode</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>3</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
@@ -228,7 +234,7 @@
 			<value>Refl. Send</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-1.80000007</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-60.000000)(1.000000,-40.000000)(2.000000,-20.000000)(3.000000,-12.000000)(4.000000,-6.000000)(5.000000,-2.000000)(6.000000,0.000000)(7.000000,2.000000)(8.000000,6.000000)(9.000000,12.000000)(10.000000,20.000000)}</value>
@@ -261,7 +267,7 @@
 			<value>Directivity</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
