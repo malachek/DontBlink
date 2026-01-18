@@ -72,6 +72,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{3497b5b8-807f-4c3c-9106-37b6b10c222c}">
+		<property name="overridingInputFormat">
+			<value>0</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{4a93e2bb-882f-48d3-b4bb-ae826fde49b3}</destination>
 		</relationship>
