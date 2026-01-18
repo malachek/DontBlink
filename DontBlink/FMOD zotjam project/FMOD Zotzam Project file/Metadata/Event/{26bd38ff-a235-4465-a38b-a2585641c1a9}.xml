@@ -56,7 +56,7 @@
 			<destination>{398980a9-c9dd-497e-9565-823ac9fb9a95}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{23779ba5-4f95-425d-bd80-8e4c8c089bc3}</destination>
+			<destination>{3392fa10-d04d-4538-9413-8f8941811446}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{54bfbdef-239a-4806-81f0-b62a673b7b43}" />
@@ -185,7 +185,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -194,7 +193,6 @@
 		<property name="name">
 			<value>Atten. Range</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -203,7 +201,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>
@@ -249,7 +246,7 @@
 			<value>Acoustics</value>
 		</property>
 		<property name="value">
-			<value>true</value>
+			<value>false</value>
 		</property>
 	</object>
 	<object class="FloatPluginParameter" id="{c8495754-95b5-4157-b9cd-b786fb44bb5b}">
@@ -268,7 +265,7 @@
 			<value>Refl. Send</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-38</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,-60.000000)(1.000000,-40.000000)(2.000000,-20.000000)(3.000000,-12.000000)(4.000000,-6.000000)(5.000000,-2.000000)(6.000000,0.000000)(7.000000,2.000000)(8.000000,6.000000)(9.000000,12.000000)(10.000000,20.000000)}</value>
