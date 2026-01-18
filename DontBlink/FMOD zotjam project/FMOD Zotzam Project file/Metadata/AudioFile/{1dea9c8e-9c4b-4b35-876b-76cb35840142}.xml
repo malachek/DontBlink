@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{02a96339-96c5-44df-a01d-a551e43aabec}">
+	<object class="AudioFile" id="{1dea9c8e-9c4b-4b35-876b-76cb35840142}">
 		<property name="assetPath">
-			<value>AMBCnst_Downtown Construction Site Calm Machine and Steam in Gasan at Seoul.wav</value>
+			<value>PC fans.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>96</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="length">
-			<value>182.41675000000001</value>
+			<value>19.325351473922904</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{3a457981-ab4a-4684-9d40-6908ebcd52f5}</destination>
