@@ -44,90 +44,90 @@ public class Act1 : MonoBehaviour
     }
 
 
-    [SerializeField] LookAtDuration bedLookAt;
+    [SerializeField] Spawner bedLookAt;
     private void BedPrompt()
     {
         bedLookAt.gameObject.SetActive(true);
-        bedLookAt.onLookedAtDuration += BedLookedAt;
+        bedLookAt.activated.AddListener(BedLookedAt);
     }
 
     [SerializeField] GameObject bed;
     private void BedLookedAt()
     {
-        bedLookAt.onLookedAtDuration -= BedLookedAt;
+        bedLookAt.activated.RemoveListener(BedLookedAt);
         bedLookAt.gameObject.SetActive(false);
         bed.SetActive(true);
         Invoke("DeskPrompt", 5f);
     }
 
-    [SerializeField] LookAtDuration deskLookAt;
+    [SerializeField] Spawner deskLookAt;
     private void DeskPrompt()
     {
         deskLookAt.gameObject.SetActive(true);
-        deskLookAt.onLookedAtDuration += BedLookedAt;
+        deskLookAt.activated.AddListener(DeskLookedAt);
     }
     [SerializeField] GameObject desk;
     private void DeskLookedAt()
     {
-        deskLookAt.onLookedAtDuration -= BedLookedAt;
+        deskLookAt.activated.RemoveListener(DeskLookedAt);
         deskLookAt.gameObject.SetActive(false);
         desk.SetActive(true);
         Invoke("ShelfPrompt", 4f);
     }
-    [SerializeField] LookAtDuration shelfLookAt;
+    [SerializeField] Spawner shelfLookAt;
     private void ShelfPrompt()
     {
         shelfLookAt.gameObject.SetActive(true);
-        shelfLookAt.onLookedAtDuration += ShelfLookedAt;
+        shelfLookAt.activated.AddListener(ShelfLookedAt);
     }
     [SerializeField] GameObject shelf;
     private void ShelfLookedAt()
     {
-        shelfLookAt.onLookedAtDuration -= ShelfLookedAt;
+        shelfLookAt.activated.RemoveListener(ShelfLookedAt);
         shelfLookAt.gameObject.SetActive(false);
         shelf.SetActive(true);
         Invoke("NightstandPrompt", 3f);
     }
-    [SerializeField] LookAtDuration nightstandLookAt;
+    [SerializeField] Spawner nightstandLookAt;
     private void NightstandPrompt()
     {
         nightstandLookAt.gameObject.SetActive(true);
-        nightstandLookAt.onLookedAtDuration += NightstandLookedAt;
+        nightstandLookAt.activated.AddListener(NightstandLookedAt);
     }
     [SerializeField] GameObject nightstand;
     private void NightstandLookedAt()
     {
-        nightstandLookAt.onLookedAtDuration -= NightstandLookedAt;
+        nightstandLookAt.activated.RemoveListener(NightstandLookedAt);
         nightstandLookAt.gameObject.SetActive(false);
         nightstand.SetActive(true);
         Invoke("BeanbagPrompt", 2f);
     }
-    [SerializeField] LookAtDuration beanbagLookAt;
+    [SerializeField] Spawner beanbagLookAt;
     private void BeanbagPrompt()
     {
         beanbagLookAt.gameObject.SetActive(true);
-        beanbagLookAt.onLookedAtDuration += BeanbagLookedAt;
+        beanbagLookAt.activated.AddListener(BeanbagLookedAt);
     }
     [SerializeField] GameObject beanbag;
     private void BeanbagLookedAt()
     {
-        beanbagLookAt.onLookedAtDuration -= BeanbagLookedAt;
+        beanbagLookAt.activated.RemoveListener(BeanbagLookedAt);
         beanbagLookAt.gameObject.SetActive(false);
         beanbag.SetActive(true);
         Invoke("PaperCrayonPrompt", 1f);
     }
-    [SerializeField] LookAtDuration paperCrayonLookAt;
+    [SerializeField] Spawner paperCrayonLookAt;
     private void PaperCrayonPrompt()
     {
         paperCrayonLookAt.gameObject.SetActive(true);
-        paperCrayonLookAt.onLookedAtDuration += PaperCrayonLookedAt;
+        paperCrayonLookAt.activated.AddListener(PaperCrayonLookedAt);
     }
     [SerializeField] ToggleObjectStationary paper;
     [SerializeField] XRGrabInteractable crayon;
     // ^ change crayon to pickup
     private void PaperCrayonLookedAt()
     {
-        paperCrayonLookAt.onLookedAtDuration -= PaperCrayonLookedAt;
+        paperCrayonLookAt.activated.RemoveListener(PaperCrayonLookedAt);
         paperCrayonLookAt.gameObject.SetActive(false);
         paper.gameObject.SetActive(true);
         Invoke("SetCrayonActive", .2f);
@@ -166,30 +166,30 @@ public class Act1 : MonoBehaviour
         crayon.transform.position = crayonHideLocation.position;
         Invoke("GuitarPrompt", 2f);
     }
-    [SerializeField] LookAtDuration guitar;
+    [SerializeField] Spawner guitar;
     private void GuitarPrompt()
     {
         guitar.gameObject.SetActive(true);
-        guitar.onLookedAtDuration += GuitarLookedAt;
+        guitar.activated.AddListener(GuitarLookedAt);
     }
     [SerializeField] GameObject guitarObject;
     private void GuitarLookedAt()
     {
-        guitar.onLookedAtDuration -= GuitarLookedAt;
+        guitar.activated.RemoveListener(GuitarLookedAt);
         guitar.gameObject.SetActive(false);
         guitarObject.SetActive(true);
         Invoke("PianoLookedAtPrompt", 1f);
     }
-    [SerializeField] LookAtDuration piano;
+    [SerializeField] Spawner piano;
     private void PianoLookedAtPrompt()
     {
         piano.gameObject.SetActive(true);
-        piano.onLookedAtDuration += PianoLookedAt;
+        piano.activated.AddListener(PianoLookedAt);
     }
     [SerializeField] GameObject pianoObject;
     private void PianoLookedAt()
     {
-        piano.onLookedAtDuration -= PianoLookedAt;
+        piano.activated.RemoveListener(PianoLookedAt);
         piano.gameObject.SetActive(false);
         pianoObject.SetActive(true);
         Invoke("SpawnTrophies", 3f);
