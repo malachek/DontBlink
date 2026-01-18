@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walls
+  m_Name: Walls 1
   m_Shader: {fileID: -6465566751694194690, guid: 1010c43305ff75d4981a67aa0bbca872, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -72,9 +72,9 @@ Material:
     - _BaseColor: {r: 0.77687794, g: 0.7992785, b: 0.8113208, a: 1}
     - _Color: {r: 0.7768779, g: 0.7992785, b: 0.8113207, a: 1}
     - _MainColor: {r: 0.51548594, g: 0.5380483, b: 0.6037736, a: 0}
-    - _RimColor: {r: 1, g: 1, b: 1, a: 0}
+    - _RimColor: {r: 0.6554379, g: 0.7587501, b: 0.9716981, a: 0}
     - _SpecularColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
-    - _Tiling: {r: 1.5, g: 1.5, b: 0, a: 0}
+    - _Tiling: {r: 2.24, g: 2, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2623047805484115271
