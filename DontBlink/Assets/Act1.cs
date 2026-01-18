@@ -19,22 +19,25 @@ public class Act1 : MonoBehaviour
             objectsToDisableOnStart[i].SetActive(false);
         }
     }
+    [SerializeField] Camera camera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        camera.farClipPlane = 1f;
         PlayQuitCanvas.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     [SerializeField] Canvas PlayQuitCanvas;
     public void Play()
     {
         PlayQuitCanvas.gameObject.SetActive(false);
+        StartCoroutine(IncreaseClippingView());
         BedPrompt();
     }
 
@@ -56,8 +59,23 @@ public class Act1 : MonoBehaviour
     {
         bedLookAt.activated.RemoveListener(BedLookedAt);
         bedLookAt.gameObject.SetActive(false);
+
         bed.SetActive(true);
         Invoke("DeskPrompt", 5f);
+    }
+    private IEnumerator IncreaseClippingView()
+    {
+        float targetFarClip = 20f;
+        float duration = 2f; // duration of the transition in seconds
+        float elapsed = 0f;
+        float initialFarClip = camera.farClipPlane;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            camera.farClipPlane = Mathf.Lerp(initialFarClip, targetFarClip, elapsed / duration);
+            yield return null;
+        }
+        camera.farClipPlane = targetFarClip; // ensure it reaches the target value
     }
 
     [SerializeField] Spawner deskLookAt;
@@ -143,12 +161,19 @@ public class Act1 : MonoBehaviour
     public void PickUpCrayon()
     {
         paper.TogglePermanent();
-        Invoke("SpawnBaseball", 3f);
+        Invoke("BaseballPrompt", 3f);
     }
-
-    [SerializeField] XRGrabInteractable baseball;
-    public void SpawnBaseball()
+    [SerializeField] Spawner baseballLookAt;
+    private void BaseballPrompt()
     {
+        baseballLookAt.gameObject.SetActive(true);
+        baseballLookAt.activated.AddListener(BaseballLookedAt);
+    }
+    [SerializeField] XRGrabInteractable baseball;
+    public void BaseballLookedAt()
+    {
+        baseballLookAt.activated.RemoveListener(BaseballLookedAt);
+        baseballLookAt.gameObject.SetActive(false);
         baseball.gameObject.SetActive(true);
     }
 
@@ -161,7 +186,7 @@ public class Act1 : MonoBehaviour
     [SerializeField] Transform paperHideLocation;
     [SerializeField] Transform crayonHideLocation;
     public void MovePaperCrayon()
-    {         
+    {
         paper.transform.position = paperHideLocation.position;
         crayon.transform.position = crayonHideLocation.position;
         Invoke("GuitarPrompt", 2f);
@@ -192,59 +217,153 @@ public class Act1 : MonoBehaviour
         piano.activated.RemoveListener(PianoLookedAt);
         piano.gameObject.SetActive(false);
         pianoObject.SetActive(true);
-        Invoke("SpawnTrophies", 3f);
+        Invoke("SheetMusicPianoPrompt", 2f);
     }
-    [SerializeField] GameObject trophy1;
-    [SerializeField] GameObject trophy2;
-    [SerializeField] GameObject trophy3;
-    private void SpawnTrophies()
+    [SerializeField] Spawner sheetMusicPianoSpawner;
+    private void SheetMusicPianoPrompt()
     {
-        trophy1.SetActive(true);
-        Invoke("SpawnSecondTrophy", .6f);
-    }
-    private void SpawnSecondTrophy()
-    {
-        trophy2.SetActive(true);
-        Invoke("SpawnThirdTrophy", .5f);
-    }
-    private void SpawnThirdTrophy()
-    {
-        trophy3.SetActive(true);
-        Invoke("SpawnRadio", .4f);
-    }
-    [SerializeField] GameObject radio;
-    private void SpawnRadio()
-    {
-        radio.SetActive(true);
-        Invoke("SpawnSheetMusic", 4f);
+        sheetMusicPianoSpawner.gameObject.SetActive(true);
+        sheetMusicPianoSpawner.activated.AddListener(SheetMusicPianoLookedAt);
     }
     [SerializeField] GameObject sheetMusicPiano;
+    private void SheetMusicPianoLookedAt()
+    {
+        sheetMusicPianoSpawner.activated.RemoveListener(SheetMusicPianoLookedAt);
+        sheetMusicPianoSpawner.gameObject.SetActive(false);
+        Invoke("SheetMusicDeskPrompt", 2f);
+    }
+
+    [SerializeField] Spawner sheetMusicDeskSpawner;
+    private void SheetMusicDeskPrompt()
+    {
+        sheetMusicDeskSpawner.gameObject.SetActive(true);
+        sheetMusicDeskSpawner.activated.AddListener(SheetMusicDeskLookedAt);
+    }
     [SerializeField] GameObject sheetMusicDesk;
-    [SerializeField] GameObject sheetMusicBed;
-    [SerializeField] GameObject sheetMusicFloor;
-    [SerializeField] GameObject sheetMusicShelf;
-    private void SpawnSheetMusic()
+    private void SheetMusicDeskLookedAt()
     {
-        sheetMusicPiano.SetActive(true);
-        Invoke("SpawnSheetMusicDesk", 1f);
-    }
-    private void SpawnSheetMusicDesk()
-    {
+        sheetMusicDeskSpawner.activated.RemoveListener(SheetMusicDeskLookedAt);
+        sheetMusicDeskSpawner.gameObject.SetActive(false);
         sheetMusicDesk.SetActive(true);
-        Invoke("SpawnSheetMusicBed", .8f);
+        Invoke("Trophy1Prompt", 1.5f);
     }
-    private void SpawnSheetMusicBed()
+    [SerializeField] Spawner trophy1Spawner;
+    private void Trophy1Prompt()
     {
+        trophy1Spawner.gameObject.SetActive(true);
+        trophy1Spawner.activated.AddListener(Trophy1LookedAt);
+    }
+    [SerializeField] GameObject trophy1;
+    private void Trophy1LookedAt()
+    {
+        trophy1Spawner.activated.RemoveListener(Trophy1LookedAt);
+        trophy1Spawner.gameObject.SetActive(false);
+        trophy1.SetActive(true);
+        Invoke("SheetMusicBedPrompt", 2f);
+    }
+    [SerializeField] Spawner sheetMusicBedSpawner;
+    private void SheetMusicBedPrompt()
+    {
+        sheetMusicBedSpawner.gameObject.SetActive(true);
+        sheetMusicBedSpawner.activated.AddListener(SheetMusicBedLookedAt);
+    }
+    [SerializeField] GameObject sheetMusicBed;
+    private void SheetMusicBedLookedAt()
+    {
+        sheetMusicBedSpawner.activated.RemoveListener(SheetMusicBedLookedAt);
+        sheetMusicBedSpawner.gameObject.SetActive(false);
         sheetMusicBed.SetActive(true);
-        Invoke("SpawnSheetMusicFloor", .6f);
+        Invoke("SheetMusicNightStandPrompt", 1.2f);
     }
-    private void SpawnSheetMusicFloor()
+    [SerializeField] Spawner sheetMusicNightstandSpawner;
+    private void SheetMusicNightStandPrompt()
     {
+        sheetMusicNightstandSpawner.gameObject.SetActive(true);
+        sheetMusicNightstandSpawner.activated.AddListener(SheetMusicNightStandLookedAt);
+    }
+    [SerializeField] GameObject sheetMusicNightstand;
+    private void SheetMusicNightStandLookedAt()
+    {
+        sheetMusicNightstandSpawner.activated.RemoveListener(SheetMusicNightStandLookedAt);
+        sheetMusicNightstandSpawner.gameObject.SetActive(false);
+        sheetMusicNightstand.SetActive(true);
+        Invoke("Trophy2Prompt", 1.2f);
+    }
+
+    [SerializeField] Spawner trophy2Spawner;
+    private void Trophy2Prompt()
+    {
+        trophy2Spawner.gameObject.SetActive(true);
+        trophy2Spawner.activated.AddListener(Trophy2LookedAt);
+    }
+    [SerializeField] GameObject trophy2;
+    private void Trophy2LookedAt()
+    {
+        trophy2Spawner.activated.RemoveListener(Trophy2LookedAt);
+        trophy2Spawner.gameObject.SetActive(false);
+        trophy2.SetActive(true);
+        Invoke("SheetMusicFloorPrompt", 1.5f);
+    }
+    [SerializeField] Spawner sheetMusicFloorSpawner;
+    private void SheetMusicFloorPrompt()
+    {
+        sheetMusicFloorSpawner.gameObject.SetActive(true);
+        sheetMusicFloorSpawner.activated.AddListener(SheetMusicFloorLookedAt);
+    }
+    [SerializeField] GameObject sheetMusicFloor;
+    private void SheetMusicFloorLookedAt()
+    {
+        sheetMusicFloorSpawner.activated.RemoveListener(SheetMusicFloorLookedAt);
+        sheetMusicFloorSpawner.gameObject.SetActive(false);
         sheetMusicFloor.SetActive(true);
-        Invoke("SpawnSheetMusicShelf", .4f);
+        Invoke("SheetMusicShelfPrompt", 1.2f);
     }
-    private void SpawnSheetMusicShelf()
+    [SerializeField] Spawner sheetMusicShelfSpawner;
+    private void SheetMusicShelfPrompt()
     {
-        sheetMusicShelf.SetActive(true);
+        sheetMusicShelfSpawner.gameObject.SetActive(true);
+        sheetMusicShelfSpawner.activated.AddListener(SheetMusicShelfLookedAt);
     }
+    [SerializeField] GameObject sheetMusicShelf;
+    private void SheetMusicShelfLookedAt()
+    {
+        sheetMusicShelfSpawner.activated.RemoveListener(SheetMusicShelfLookedAt);
+        sheetMusicShelfSpawner.gameObject.SetActive(false);
+        sheetMusicShelf.SetActive(true);
+        Invoke("Trophy3Prompt", 0.5f);
+    }
+    [SerializeField] Spawner trophy3Spawner;
+    private void Trophy3Prompt()
+    {
+        trophy3Spawner.gameObject.SetActive(true);
+        trophy3Spawner.activated.AddListener(Trophy3LookedAt);
+    }
+    [SerializeField] GameObject trophy3;
+    private void Trophy3LookedAt()
+    {
+        trophy3Spawner.activated.RemoveListener(Trophy3LookedAt);
+        trophy3Spawner.gameObject.SetActive(false);
+        trophy3.SetActive(true);
+        Invoke("RadioPrompt", 2f);
+    }
+    [SerializeField] Spawner radioSpawner;
+    private void RadioPrompt()
+    {
+        radioSpawner.gameObject.SetActive(true);
+        radioSpawner.activated.AddListener(RadioLookedAt);
+    }
+    [SerializeField] GameObject radio;
+    private void RadioLookedAt()
+    {
+        radioSpawner.activated.RemoveListener(RadioLookedAt);
+        radioSpawner.gameObject.SetActive(false);
+        radio.SetActive(true);
+        Invoke("StartAct2", 3f);        
+    }
+    [SerializeField] Act2 act2;
+    private void StartAct2()
+    {
+        act2.Begin();
+    }
+
 }
