@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1b67b718-a288-41f3-af03-1699f1085aad}">
+		<property name="assetPath">
+			<value>Act 1_V2.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>103.824</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3a457981-ab4a-4684-9d40-6908ebcd52f5}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1cf54660-bef9-4dce-800c-0be7ea728ce6}">
+		<property name="assetPath">
+			<value>Mom_8.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>11.01015873015873</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3a457981-ab4a-4684-9d40-6908ebcd52f5}</destination>
+		</relationship>
+	</object>
+</objects>
