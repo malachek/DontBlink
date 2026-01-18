@@ -6,6 +6,18 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Act1 : MonoBehaviour
 {
+    [SerializeField] GameObject[] objectsToDisableOnStart;
+    private void Awake()
+    {
+        DisableEverything();
+    }
+    private void DisableEverything()
+    {
+        for (int i = 0; i < objectsToDisableOnStart.Length; i++)
+        {
+            objectsToDisableOnStart[i].SetActive(false);
+        }
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -110,7 +122,7 @@ public class Act1 : MonoBehaviour
         paperCrayonLookAt.onLookedAtDuration += PaperCrayonLookedAt;
     }
     [SerializeField] ToggleObjectStationary paper;
-    [SerializeField] GameObject crayon;
+    [SerializeField] XRGrabInteractable crayon;
     // ^ change crayon to pickup
     private void PaperCrayonLookedAt()
     {
@@ -121,7 +133,7 @@ public class Act1 : MonoBehaviour
     }
     private void SetCrayonActive()
     {
-        crayon.SetActive(true);
+        crayon.gameObject.SetActive(true);
     }
 
 
