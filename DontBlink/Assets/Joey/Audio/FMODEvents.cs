@@ -12,6 +12,16 @@ public class FMODEvents : MonoBehaviour
     [field: Header("backgroundAmbiance")]
     [field: SerializeField] public EventReference backgroundAmbiance { get; private set; }
 
+    [field: Header("Act1Music")]
+    [field: SerializeField] public EventReference Act1Music { get; private set; }
+
+    [field: Header("Act2Music")]
+    [field: SerializeField] public EventReference Act2Music { get; private set; }
+
+    [field: Header("Act3Music")]
+    [field: SerializeField] public EventReference Act3Music { get; private set; }
+
+
     [field: Header("Notification")]
     [field: SerializeField] public EventReference Notification { get; private set; }
 
@@ -29,6 +39,18 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Piano")]
     [field: SerializeField] public EventReference Piano { get; private set; }
+
+    [field: Header("Achievement")]
+    [field: SerializeField] public EventReference Achievement { get; private set; }
+
+    [field: Header("Piano2")]
+    [field: SerializeField] public EventReference Piano2 { get; private set; }
+
+    [field: Header("Piano3")]
+    [field: SerializeField] public EventReference Piano3 { get; private set; }
+
+    [field: Header("Piano4")]
+    [field: SerializeField] public EventReference Piano4 { get; private set; }
 
 
     //Example for future one shot referrences

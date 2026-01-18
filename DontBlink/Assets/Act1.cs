@@ -164,6 +164,7 @@ public class Act1 : MonoBehaviour
     private void SetCrayonActive()
     {
         crayon.gameObject.SetActive(true);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
     }
 
 
@@ -272,6 +273,7 @@ public class Act1 : MonoBehaviour
         trophy1Spawner.activated.RemoveListener(Trophy1LookedAt);
         trophy1Spawner.gameObject.SetActive(false);
         trophy1.SetActive(true);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Achievement, this.transform.position);
         Invoke("SheetMusicBedPrompt", 2f);
     }
     [SerializeField] Spawner sheetMusicBedSpawner;
@@ -315,6 +317,7 @@ public class Act1 : MonoBehaviour
         trophy2Spawner.activated.RemoveListener(Trophy2LookedAt);
         trophy2Spawner.gameObject.SetActive(false);
         trophy2.SetActive(true);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Piano2, this.transform.position);
         Invoke("SheetMusicFloorPrompt", 1.5f);
     }
     [SerializeField] Spawner sheetMusicFloorSpawner;
@@ -329,6 +332,7 @@ public class Act1 : MonoBehaviour
         sheetMusicFloorSpawner.activated.RemoveListener(SheetMusicFloorLookedAt);
         sheetMusicFloorSpawner.gameObject.SetActive(false);
         sheetMusicFloor.SetActive(true);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Piano3, this.transform.position);
         Invoke("SheetMusicShelfPrompt", 1.2f);
     }
     [SerializeField] Spawner sheetMusicShelfSpawner;
@@ -357,6 +361,7 @@ public class Act1 : MonoBehaviour
         trophy3Spawner.activated.RemoveListener(Trophy3LookedAt);
         trophy3Spawner.gameObject.SetActive(false);
         trophy3.SetActive(true);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Piano4, this.transform.position);
         Invoke("RadioPrompt", 2f);
     }
     [SerializeField] Spawner radioSpawner;

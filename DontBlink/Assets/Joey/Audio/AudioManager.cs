@@ -37,24 +37,35 @@ public class AudioManager : MonoBehaviour
     private List<StudioEventEmitter> eventEmitters;
 
     private EventInstance ambianceEventInstance;
+
+    private EventInstance Act1MusicEventInstance;
+
+    private EventInstance Act2MusicEventInstance;
+
+    private EventInstance Act3MusicEventInstance;
     public static AudioManager instance { get; private set; }
 
 
 
 
-    //private void Start()
-    //{
-    //    InitializeAmbience(FMODEvents.instance.backgroundAmbiance);
-    //}
+    private void Start()
+    {
+        InitializeAmbience(FMODEvents.instance.backgroundAmbiance);
+        InitializeAmbience(FMODEvents.instance.Act1Music);
+        InitializeAmbience(FMODEvents.instance.Act2Music);
+    }
 
 
-    // private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //     {
-    //         if (scene.name == "BUILD_1") 
-    //             {
-    //                 InitializeAmbience(FMODEvents.instance.backgroundAmbiance);    
-    //             }
-    //     }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Conner'sFrickingSuperAwesomeScene")
+        {
+            InitializeAmbience(FMODEvents.instance.backgroundAmbiance);
+            //InitializeAmbience(FMODEvents.instance.Act1Music);
+            InitializeAmbience(FMODEvents.instance.Act2Music);
+           // InitializeAmbience(FMODEvents.instance.Act3Music);
+        }
+    }
 
 
     private void Awake()
@@ -73,7 +84,7 @@ public class AudioManager : MonoBehaviour
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
     }
 
-
+    
     private void Update()
     {
         {
@@ -90,6 +101,23 @@ public class AudioManager : MonoBehaviour
         ambianceEventInstance.start();
     }
 
+    private void InitializeMusic(EventReference Act1MusicEventReverence)
+    {
+        Act1MusicEventInstance = CreateInstance(Act1MusicEventReverence);
+        Act1MusicEventInstance.start();
+    }
+
+    private void InitializeMusic2(EventReference Act2MusicEventReverence)
+    {
+        Act2MusicEventInstance = CreateInstance(Act2MusicEventReverence);
+        Act2MusicEventInstance.start();
+    }
+
+    private void InitializeMusic3(EventReference Act3MusicEventReverence)
+    {
+        Act3MusicEventInstance = CreateInstance(Act3MusicEventReverence);
+        Act3MusicEventInstance.start();
+    }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
