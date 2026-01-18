@@ -10,6 +10,7 @@ public class Act1 : MonoBehaviour
     private void Awake()
     {
         DisableEverything();
+
     }
     private void DisableEverything()
     {
@@ -21,7 +22,7 @@ public class Act1 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        PlayQuitCanvas.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class Act1 : MonoBehaviour
     [SerializeField] Canvas PlayQuitCanvas;
     public void Play()
     {
-        PlayQuitCanvas.enabled = false;
+        PlayQuitCanvas.gameObject.SetActive(false);
         BedPrompt();
     }
 

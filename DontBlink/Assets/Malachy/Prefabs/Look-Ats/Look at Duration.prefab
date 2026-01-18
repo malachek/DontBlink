@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5334490647576933705}
   - component: {fileID: 2249364620661271706}
   - component: {fileID: 431712557797023875}
+  - component: {fileID: -1307798938132197464}
   m_Layer: 0
   m_Name: Look at Duration
   m_TagString: Untagged
@@ -157,6 +158,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -1307798938132197464}
+        m_TargetAssemblyTypeName: LookAtDuration, Assembly-CSharp
+        m_MethodName: LookAt
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_HoverExited:
     m_PersistentCalls:
       m_Calls:
@@ -167,6 +180,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -1307798938132197464}
+        m_TargetAssemblyTypeName: LookAtDuration, Assembly-CSharp
+        m_MethodName: StopLook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -205,3 +230,15 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
+--- !u!114 &-1307798938132197464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9161717724324180581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5aaa06dad62e44291aead3d503eb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
