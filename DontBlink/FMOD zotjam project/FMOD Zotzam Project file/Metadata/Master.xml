@@ -20,6 +20,7 @@
 	<object class="MixerBusEffectChain" id="{80b3a1c6-6e14-453a-aee3-c520014916cb}">
 		<relationship name="effects">
 			<destination>{a63535d6-54f9-445c-b798-52cb2bd81503}</destination>
+			<destination>{1c0d97cf-2fd7-4c1a-bf1e-264a8cedf733}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{05cf69a8-c3f4-4bb5-aa16-07b6e5bc4885}">
@@ -28,4 +29,80 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{a63535d6-54f9-445c-b798-52cb2bd81503}" />
+	<object class="PluginEffect" id="{1c0d97cf-2fd7-4c1a-bf1e-264a8cedf733}">
+		<relationship name="plugin">
+			<destination>{b878fd09-68b8-48b4-ac08-28ce9e84fcc6}</destination>
+		</relationship>
+	</object>
+	<object class="Plugin" id="{b878fd09-68b8-48b4-ac08-28ce9e84fcc6}">
+		<property name="identifier">
+			<value>MetaXRAudio Reflections</value>
+		</property>
+		<relationship name="pluginParameters">
+			<destination>{74ef0392-8e4e-4d96-9ddf-81f5c2a2658c}</destination>
+			<destination>{a4e6a0e5-fb64-4597-ab8f-ade4d7f58cb5}</destination>
+			<destination>{091242e0-0c30-4ca4-8e13-c2c508a67441}</destination>
+			<destination>{cc877014-52ee-4a31-92cd-7f98661bac9d}</destination>
+			<destination>{a3c812d4-671a-46fd-9111-c684d7ae194f}</destination>
+			<destination>{038b9e6d-066d-45a5-972d-c6ffe56fe625}</destination>
+		</relationship>
+	</object>
+	<object class="BoolPluginParameter" id="{74ef0392-8e4e-4d96-9ddf-81f5c2a2658c}">
+		<property name="name">
+			<value>Early Refl.</value>
+		</property>
+		<property name="value">
+			<value>true</value>
+		</property>
+	</object>
+	<object class="BoolPluginParameter" id="{a4e6a0e5-fb64-4597-ab8f-ade4d7f58cb5}">
+		<property name="name">
+			<value>Reverb Enabled</value>
+		</property>
+		<property name="value">
+			<value>true</value>
+		</property>
+	</object>
+	<object class="DataPluginParameter" id="{091242e0-0c30-4ca4-8e13-c2c508a67441}">
+		<property name="name">
+			<value>Overall Gain</value>
+		</property>
+		<property name="value" />
+		<property name="dataType">
+			<value>-1</value>
+		</property>
+	</object>
+	<object class="FloatPluginParameter" id="{cc877014-52ee-4a31-92cd-7f98661bac9d}">
+		<property name="name">
+			<value>Reverb Level</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curve">
+			<value>{(0.000000,-60.000000)(1.000000,-40.000000)(2.000000,-20.000000)(3.000000,-12.000000)(4.000000,-6.000000)(5.000000,-2.000000)(6.000000,0.000000)(7.000000,2.000000)(8.000000,6.000000)(9.000000,12.000000)(10.000000,20.000000)}</value>
+		</property>
+	</object>
+	<object class="IntPluginParameter" id="{a3c812d4-671a-46fd-9111-c684d7ae194f}">
+		<property name="name">
+			<value>Voice Limit</value>
+		</property>
+		<property name="value">
+			<value>64</value>
+		</property>
+		<property name="minimumValue">
+			<value>1</value>
+		</property>
+		<property name="maximumValue">
+			<value>1024</value>
+		</property>
+	</object>
+	<object class="BoolPluginParameter" id="{038b9e6d-066d-45a5-972d-c6ffe56fe625}">
+		<property name="name">
+			<value>Editor Bypass</value>
+		</property>
+		<property name="value">
+			<value>false</value>
+		</property>
+	</object>
 </objects>
