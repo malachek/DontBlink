@@ -50,20 +50,20 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeAmbience(FMODEvents.instance.backgroundAmbiance);
-        InitializeAmbience(FMODEvents.instance.Act1Music);
-        InitializeAmbience(FMODEvents.instance.Act2Music);
+      //  InitializeAmbience(FMODEvents.instance.backgroundAmbiance);
+       // InitializeMusic(FMODEvents.instance.Act1Music);
+       // InitializeAmbience(FMODEvents.instance.Act2Music);
     }
 
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Conner'sFrickingSuperAwesomeScene")
+        if (scene.name == "Greyboxing") //Conner'sFrickingSuperAwesomeScene
         {
-            InitializeAmbience(FMODEvents.instance.backgroundAmbiance);
-            //InitializeAmbience(FMODEvents.instance.Act1Music);
-            InitializeAmbience(FMODEvents.instance.Act2Music);
-           // InitializeAmbience(FMODEvents.instance.Act3Music);
+            //InitializeAmbience(FMODEvents.instance.backgroundAmbiance);
+            InitializeMusic(FMODEvents.instance.Act1Music);
+           // InitializeMusic2(FMODEvents.instance.Act2Music);
+           // InitializeMusic3(FMODEvents.instance.Act3Music);
         }
     }
 
@@ -157,7 +157,40 @@ public class AudioManager : MonoBehaviour
     {
         CleanUp();
     }
+    public void StartAct1Music()
+    {
+        InitializeMusic(FMODEvents.instance.Act1Music);
+    }
 
+    public void StartAct2Music()
+    {
+        InitializeMusic(FMODEvents.instance.Act2Music);
+    }
 
+    public void StartAct3Music()
+    {
+        InitializeMusic(FMODEvents.instance.Act3Music);
+    }
+
+    public void StopAct1Music()
+    {
+            Act1MusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            Act1MusicEventInstance.release();
+        
+    }
+
+    public void StopAct2Music()
+    {
+        Act2MusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        Act2MusicEventInstance.release();
+
+    }
+
+    public void StopAct3Music()
+    {
+        Act3MusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        Act3MusicEventInstance.release();
+
+    }
 
 }

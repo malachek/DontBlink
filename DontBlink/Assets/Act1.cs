@@ -53,8 +53,9 @@ public class Act1 : MonoBehaviour
     [SerializeField] Spawner bedLookAt;
     private void BedPrompt()
     {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Hover, this.transform.position);
+        
         bedLookAt.gameObject.SetActive(true);
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Hover, this.transform.position);
         bedLookAt.activated.AddListener(BedLookedAt);
     }
 
@@ -67,6 +68,10 @@ public class Act1 : MonoBehaviour
 
         bed.SetActive(true);
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
+        //AudioManager.instance.StopAct1Music();
+        AudioManager.instance.StartAct1Music();
+
+        Debug.Log("trying to Start music");
         Invoke("DeskPrompt", 5f);
     }
     private IEnumerator IncreaseClippingView()
