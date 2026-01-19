@@ -73,7 +73,7 @@ public class Act1 : MonoBehaviour
         //AudioManager.instance.StopAct1Music();
 
        
-      //  DynamicTextManager.CreateText(new Vector3(0.21f, 2.85f, 3.26f), "Wake up, honey!", DynamicTextManager.defaultData);
+        //DynamicTextManager.CreateText(new Vector3(0.21f, 2.85f, 3.26f), "Wake up, honey!", DynamicTextManager.defaultData);
 
 
 
