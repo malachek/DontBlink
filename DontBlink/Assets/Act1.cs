@@ -159,6 +159,7 @@ public class Act1 : MonoBehaviour
     }
     [SerializeField] ToggleObjectStationary paper;
     [SerializeField] XRGrabInteractable crayon;
+    [SerializeField] GameObject drawingStuff;
     // ^ change crayon to pickup
     private void PaperCrayonLookedAt()
     {
@@ -179,6 +180,7 @@ public class Act1 : MonoBehaviour
     public void PickUpCrayon()
     {
         paper.TogglePermanent();
+        drawingStuff.SetActive(true);
         Invoke("BaseballPrompt", 3f);
     }
     [SerializeField] Spawner baseballLookAt;
@@ -205,9 +207,7 @@ public class Act1 : MonoBehaviour
     [SerializeField] Transform crayonHideLocation;
     public void MovePaperCrayon()
     {
-        paper.transform.position = paperHideLocation.position;
-        crayon.transform.position = crayonHideLocation.position;
-        Invoke("GuitarPrompt", 2f);
+        Invoke("GuitarPrompt", 1f);
     }
     [SerializeField] Spawner guitar;
     private void GuitarPrompt()
@@ -382,12 +382,24 @@ public class Act1 : MonoBehaviour
         radioSpawner.activated.RemoveListener(RadioLookedAt);
         radioSpawner.gameObject.SetActive(false);
         radio.SetActive(true);
-        Invoke("StartAct2", 3f);
+        // PLAY MOMS DRAWING VOICE LINE
+        //Invoke("PCPrompt", 5f);
     }
-    [SerializeField] Act2 act2;
-    private void StartAct2()
+    [SerializeField] Spawner pcSpawner;
+    private void PCPrompt()
     {
-        act2.Begin();
+        pcSpawner.gameObject.SetActive(true);
+        pcSpawner.activated.AddListener(PCLookedAt);
+    }   
+    [SerializeField] GameObject pc;
+    private void PCLookedAt()
+    {
+        pcSpawner.activated.RemoveListener(PCLookedAt);
+        pcSpawner.gameObject.SetActive(false);
+        pc.SetActive(true);
+        
     }
+
+
 
 }
