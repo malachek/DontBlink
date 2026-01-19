@@ -61,14 +61,14 @@ public class Act1 : MonoBehaviour
         bedLookAt.activated.AddListener(BedLookedAt);
     }
 
-    [SerializeField] GameObject bed;
+    [SerializeField] MultiSpawner bed;
     private void BedLookedAt()
     {
         bedLookAt.activated.RemoveListener(BedLookedAt);
         bedLookAt.gameObject.SetActive(false);
        
 
-        bed.SetActive(true);
+        bed.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
         //AudioManager.instance.StopAct1Music();
        
@@ -97,12 +97,12 @@ public class Act1 : MonoBehaviour
         deskLookAt.gameObject.SetActive(true);
         deskLookAt.activated.AddListener(DeskLookedAt);
     }
-    [SerializeField] GameObject desk;
+    [SerializeField] MultiSpawner desk;
     private void DeskLookedAt()
     {
         deskLookAt.activated.RemoveListener(DeskLookedAt);
         deskLookAt.gameObject.SetActive(false);
-        desk.SetActive(true);
+        desk.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
         Invoke("ShelfPrompt", 4f);
     }
@@ -113,12 +113,12 @@ public class Act1 : MonoBehaviour
         shelfLookAt.activated.AddListener(ShelfLookedAt);
 
     }
-    [SerializeField] GameObject shelf;
+    [SerializeField] MultiSpawner shelf;
     private void ShelfLookedAt()
     {
         shelfLookAt.activated.RemoveListener(ShelfLookedAt);
         shelfLookAt.gameObject.SetActive(false);
-        shelf.SetActive(true);
+        shelf.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
         
         Invoke("NightstandPrompt", 3f);
@@ -129,12 +129,12 @@ public class Act1 : MonoBehaviour
         nightstandLookAt.gameObject.SetActive(true);
         nightstandLookAt.activated.AddListener(NightstandLookedAt);
     }
-    [SerializeField] GameObject nightstand;
+    [SerializeField] MultiSpawner nightstand;
     private void NightstandLookedAt()
     {
         nightstandLookAt.activated.RemoveListener(NightstandLookedAt);
         nightstandLookAt.gameObject.SetActive(false);
-        nightstand.SetActive(true);
+        nightstand.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
         Invoke("BeanbagPrompt", 2f);
     }
@@ -162,7 +162,7 @@ public class Act1 : MonoBehaviour
     }
     [SerializeField] ToggleObjectStationary paper;
     [SerializeField] XRGrabInteractable crayon;
-    [SerializeField] GameObject drawingStuff;
+    [SerializeField] MultiSpawner drawingStuff;
     // ^ change crayon to pickup
     private void PaperCrayonLookedAt()
     {
@@ -183,9 +183,9 @@ public class Act1 : MonoBehaviour
     public void PickUpCrayon()
     {
         paper.TogglePermanent();
-        drawingStuff.SetActive(true);
+        drawingStuff.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_4, this.transform.position);
-        Invoke("BaseballPrompt", 3f);
+        Invoke("BaseballPrompt", 5f);
     }
     [SerializeField] Spawner baseballLookAt;
     private void BaseballPrompt()
@@ -208,8 +208,6 @@ public class Act1 : MonoBehaviour
     {
         Invoke("MovePaperCrayon", 1f);
     }
-    [SerializeField] Transform paperHideLocation;
-    [SerializeField] Transform crayonHideLocation;
     public void MovePaperCrayon()
     {
         Invoke("GuitarPrompt", 1f);
@@ -236,12 +234,12 @@ public class Act1 : MonoBehaviour
         piano.gameObject.SetActive(true);
         piano.activated.AddListener(PianoLookedAt);
     }
-    [SerializeField] GameObject pianoObject;
+    [SerializeField] MultiSpawner pianoObject;
     private void PianoLookedAt()
     {
         piano.activated.RemoveListener(PianoLookedAt);
         piano.gameObject.SetActive(false);
-        pianoObject.SetActive(true);
+        pianoObject.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Piano, this.transform.position);
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_7, this.transform.position);
         Invoke("SheetMusicPianoPrompt", 2f);
@@ -368,12 +366,12 @@ public class Act1 : MonoBehaviour
         trophy3Spawner.gameObject.SetActive(true);
         trophy3Spawner.activated.AddListener(Trophy3LookedAt);
     }
-    [SerializeField] GameObject trophy3;
+    [SerializeField] MultiSpawner trophy3;
     private void Trophy3LookedAt()
     {
         trophy3Spawner.activated.RemoveListener(Trophy3LookedAt);
         trophy3Spawner.gameObject.SetActive(false);
-        trophy3.SetActive(true);
+        trophy3.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Piano4, this.transform.position);
         Invoke("RadioPrompt", 2f);
     }
