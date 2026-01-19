@@ -39,6 +39,7 @@ public class Act1 : MonoBehaviour
     public void Play()
     {
         PlayQuitCanvas.gameObject.SetActive(false);
+        AudioManager.instance.StartAct1Music();
         StartCoroutine(IncreaseClippingView());
         BedPrompt();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Click, this.transform.position);
@@ -69,7 +70,7 @@ public class Act1 : MonoBehaviour
         bed.SetActive(true);
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
         //AudioManager.instance.StopAct1Music();
-        AudioManager.instance.StartAct1Music();
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_1, this.transform.position);
 
         Debug.Log("trying to Start music");
         Invoke("DeskPrompt", 5f);

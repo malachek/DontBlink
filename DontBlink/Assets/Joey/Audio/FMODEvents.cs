@@ -53,6 +53,9 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Piano4")]
     [field: SerializeField] public EventReference Piano4 { get; private set; }
 
+    [field: Header("Mom_1")]
+    [field: SerializeField] public EventReference Mom_1 { get; private set; }
+
 
     //Example for future one shot referrences
     //AudioManager.instance.PlayOneShot(FMODEvents.instance.sonarPing, this.transform.position);
