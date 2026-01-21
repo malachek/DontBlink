@@ -71,9 +71,12 @@ public class Act1 : MonoBehaviour
         bed.SpawnObjects();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
         //AudioManager.instance.StopAct1Music();
-       
 
-        Debug.Log("trying to Start music");
+       
+        //DynamicTextManager.CreateText(new Vector3(0.21f, 2.85f, 3.26f), "Wake up, honey!", DynamicTextManager.defaultData);
+
+
+
         Invoke("DeskPrompt", 5f);
     }
     private IEnumerator IncreaseClippingView()
