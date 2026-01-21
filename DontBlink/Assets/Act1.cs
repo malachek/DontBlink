@@ -20,11 +20,11 @@ public class Act1 : MonoBehaviour
             objectsToDisableOnStart[i].SetActive(false);
         }
     }
-    [SerializeField] Camera camera;
+    [SerializeField] Camera myCamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        camera.farClipPlane = 1f;
+        //myCamera.farClipPlane = 1f;
         PlayQuitCanvas.gameObject.SetActive(true);
 
     }
@@ -40,7 +40,7 @@ public class Act1 : MonoBehaviour
     {
         PlayQuitCanvas.gameObject.SetActive(false);
         AudioManager.instance.StartAct1Music();
-        StartCoroutine(IncreaseClippingView());
+        //StartCoroutine(IncreaseClippingView());
         BedPrompt();
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Click, this.transform.position);
         AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_1, this.transform.position);
@@ -81,14 +81,14 @@ public class Act1 : MonoBehaviour
         float targetFarClip = 20f;
         float duration = 2f; // duration of the transition in seconds
         float elapsed = 0f;
-        float initialFarClip = camera.farClipPlane;
+        float initialFarClip = myCamera.farClipPlane;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
-            camera.farClipPlane = Mathf.Lerp(initialFarClip, targetFarClip, elapsed / duration);
+            myCamera.farClipPlane = Mathf.Lerp(initialFarClip, targetFarClip, elapsed / duration);
             yield return null;
         }
-        camera.farClipPlane = targetFarClip; // ensure it reaches the target value
+        myCamera.farClipPlane = targetFarClip; // ensure it reaches the target value
     }
 
     [SerializeField] Spawner deskLookAt;
