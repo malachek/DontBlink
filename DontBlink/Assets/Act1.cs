@@ -39,11 +39,11 @@ public class Act1 : MonoBehaviour
     public void Play()
     {
         PlayQuitCanvas.gameObject.SetActive(false);
-        AudioManager.instance.StartAct1Music();
+        //AudioManager.instance.StartAct1Music();
         //StartCoroutine(IncreaseClippingView());
         BedPrompt();
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Click, this.transform.position);
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_1, this.transform.position);
+        //AudioManager.instance.PlayOneShot(FMODEvents.instance.Click, this.transform.position);
+        //AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_1, this.transform.position);
     }
 
     public void Quit()
@@ -55,9 +55,9 @@ public class Act1 : MonoBehaviour
     [SerializeField] Spawner bedLookAt;
     private void BedPrompt()
     {
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_2, this.transform.position);
+        //AudioManager.instance.PlayOneShot(FMODEvents.instance.Mom_2, this.transform.position);
         bedLookAt.gameObject.SetActive(true);
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Hover, this.transform.position);
+        //AudioManager.instance.PlayOneShot(FMODEvents.instance.Hover, this.transform.position);
         bedLookAt.activated.AddListener(BedLookedAt);
     }
 
@@ -69,7 +69,7 @@ public class Act1 : MonoBehaviour
        
 
         bed.SpawnObjects();
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
+        //AudioManager.instance.PlayOneShot(FMODEvents.instance.Notification, this.transform.position);
         //AudioManager.instance.StopAct1Music();
 
        

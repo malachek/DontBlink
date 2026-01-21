@@ -376,7 +376,7 @@ MonoBehaviour:
   openingEye: {fileID: 1450771098, guid: 263ecbc00bc407c4997b8c14caac8063, type: 3}
   openEye1: {fileID: 1820516857, guid: 6b786a581ef0d7b4aba70e1c5e13a3e0, type: 3}
   openEye2: {fileID: 1213072035, guid: 100166888342be74f9d9f46617b6d208, type: 3}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 5414771459069120051}
 --- !u!1 &8024025308387838488
 GameObject:
   m_ObjectHideFlags: 0

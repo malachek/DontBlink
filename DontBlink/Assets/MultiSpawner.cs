@@ -5,7 +5,7 @@ public class MultiSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] spawningObjects;
 
-    float spawnInterval = 1.5f;
+    [SerializeField] float spawnInterval = 1.5f;
     float acceleration;
     public void SpawnObjects()
     {
